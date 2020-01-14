@@ -1,12 +1,14 @@
-import React from "react"
+import React from "react";
+// import PizzaForm from './PizzaForm';
 
-const Pizza = () => {
+const Pizza = (props) => {
+  let object = {id: props.id, topping: props.topping, size: props.size, vegetarian: (props.vegetarian ? 'true' : 'false')}
   return(
     <tr>
-      <td>{"Replace Me With Pizza Topping"}</td>
-      <td>{"Replace Me With Pizza Size"}</td>
-      <td>{"Replace Me With Vegatarian"}</td>
-      <td><button type="button" className="btn btn-primary">Edit Pizza</button></td>
+      <td>{props.topping}</td>
+      <td>{props.size}</td>
+      <td>{props.vegetarian ? 'Yes' : 'No'}</td>
+      <td><button onClick={() => props.editPizza(object)} id={props.id} type="button" className="btn btn-primary">Edit Pizza</button></td>
     </tr>
   )
 }
